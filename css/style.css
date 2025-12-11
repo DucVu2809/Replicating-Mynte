@@ -1,0 +1,40 @@
+/* --- BIẾN DÙNG CHUNG --- */
+:root {
+    --bg-color: #f5f2eb;      
+    --text-main: #1a1a1a;     
+    --text-gray: #7a7a7a;     
+}
+
+/* --- CẤU HÌNH CƠ BẢN --- */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
+    letter-spacing: 0.5px; 
+}
+
+/* --- TÙY BIẾN NAV BAR --- */
+.navbar {
+    background-color: var(--bg-color); 
+    padding: 20px 40px;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.spacing-wide {
+    letter-spacing: 1.5px;
+}
+
+.nav-link {
+    color: var(--text-main) !important;
+    padding: 0 20px !important;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: var(--text-gray) !important;
+}
