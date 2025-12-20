@@ -8,152 +8,477 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
     <header class="fixed-top bg-white border-bottom border-light">
-        <nav class="navbar navbar-expand-lg navbar-light py-3">
-            <div class="container">
-                <a class="navbar-brand fs-3" href="#" style="letter-spacing: 1px;">
-                  <span class="brand-font fw-bold">DREAMY</span>
-                </a>
-                
-                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="bi bi-list fs-2"></span>
-                </button>
+    <nav class="navbar navbar-expand-lg navbar-light py-3">
+        <div class="container">
+            <a class="navbar-brand fs-3" href="index.html" style="letter-spacing: 1px;">
+                <span class="brand-font fw-bold">DREAMY</span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="bi bi-list fs-2"></span>
+            </button>
 
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav align-items-center text-uppercase small spacing-wide gap-3 nav-interaction-group">
-    
-                        <li class="nav-item">
-                           <a class="nav-link nav-interactive-item" href="#">Sách mới</a>
-                        </li>
-
-                        <li class="nav-item">
-                           <a class="nav-link nav-interactive-item" href="#">Tác giả</a>
-                         </li>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center text-uppercase small spacing-wide gap-3 nav-interaction-group">
 
                     <li class="nav-item">
-                        <a class="nav-link nav-interactive-item" href="#">Về chúng tôi</a>
+                       <a class="nav-link nav-interactive-item" href="book.html">Sách mới</a>
+                    </li>
+
+                    <li class="nav-item">
+                       <a class="nav-link nav-interactive-item" href="log.html">Lịch Sử</a>
+                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-interactive-item" href="about.html">Về chúng tôi</a>
                     </li>
 
                     <li class="nav-item ms-lg-3">
-                        <a class="nav-link position-relative nav-interactive-item" href="#">
+                        <a class="nav-link position-relative nav-interactive-item" href="cart.html">
                             <i class="bi bi-bag fs-5"></i>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black" style="font-size: 0.6rem;">0</span>
                         </a>
                     </li>
                 </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main class="container mt-5 pt-5">
-        <div class="row mt-5 mb-5 text-center">
-            <div class="col-lg-8 mx-auto">
-                <p class="text-uppercase text-muted small letter-spacing">Thư viện chọn lọc</p>
-                <h1 class="display-3 brand-font fst-italic mb-4">"Đọc để thấy thế giới <br> rộng lớn hơn."</h1>
-                <a href="#shop" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase small">Xem bộ sưu tập</a>
             </div>
         </div>
-      <section class="partner-strip-section">
-    <div class="container text-center mb-3">
-       <p class="text-uppercase text-muted letter-spacing" style="font-size: 0.7rem;">Trusted by 10+ Clients</p>
+    </nav>
+</header>
+
+<main class="container mt-5 pt-5">
+    
+    <div class="row mt-5 mb-5 text-center">
+        <div class="col-lg-8 mx-auto">
+            <p class="text-uppercase text-muted small letter-spacing">Thư viện chọn lọc</p>
+            <h1 class="display-3 brand-font fst-italic mb-4">"Đọc để thấy thế giới <br> rộng lớn hơn."</h1>
+            <a href="#shop" class="btn btn-outline-dark rounded-0 px-4 py-2 text-uppercase small" onclick="lenis.scrollTo('#shop')">Xem bộ sưu tập</a>
+        </div>
     </div>
 
-    <div class="marquee-wrapper">
-        <div class="marquee-track">
+    <section class="partner-strip-section">
+        <div class="container text-center mb-3">
+           <p class="text-uppercase text-muted letter-spacing" style="font-size: 0.7rem;">Trusted by 10+ Clients</p>
+        </div>
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <div class="logo-set">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="Amazon" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png" alt="Google" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png" alt="Netflix" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/2560px-IBM_logo.svg.png" alt="IBM" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1600px-Apple_logo_black.svg.png" alt="Apple" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png" alt="Microsoft" class="partner-logo">
+                </div>
+                <div class="logo-set">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="Amazon" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png" alt="Google" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png" alt="Netflix" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/2560px-IBM_logo.svg.png" alt="IBM" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1600px-Apple_logo_black.svg.png" alt="Apple" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png" alt="Microsoft" class="partner-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shop" class="py-5 bg-light-subtle mt-4">
+        <div class="container">
+            <div class="row mb-5 text-center">
+                <div class="col-12">
+                    <span class="badge bg-black text-uppercase letter-spacing px-3 py-2 mb-3">Editor's Choice 2025</span>
+                    <h2 class="display-4 brand-font">Sách Của Năm</h2>
+                    <div style="width: 50px; height: 1px; background: #000; margin: 20px auto;"></div>
+                </div>
+            </div>
+
+            <div class="row align-items-center g-5">
+                
+                <div class="col-lg-6 text-center">
+                    <div class="book-showcase position-relative d-inline-block">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/1/13/Milk_and_Honey_%28poetry_collection%29.jpg" 
+                             alt="Book of the Year" 
+                             class="img-fluid rounded-1 shadow-lg book-cover-3d" 
+                             style="max-width: 350px;"> <div class="decorative-circle"></div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="ps-lg-4">
+                        <h3 class="display-5 brand-font mb-2">Milk and Honey</h3>
+                        <p class="text-uppercase text-muted small letter-spacing mb-4">By rupi kaur</p>
+                        
+                        <div class="mb-4 text-warning">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <span class="text-muted text-black ms-2 small">(4.9/5 từ độc giả)</span>
+                        </div>
+
+                        <figure class="bg-white p-4 border-start border-4 border-dark mb-4 fst-italic text-muted shadow-sm">
+                            "Một kiệt tác về nghệ thuật thơ trừu tượng. Cuốn sách này không chỉ dạy bạn cách buông bỏ, mà còn là cách tìm lại chính mình giữa thế giới ồn ào."
+                        </figure>
+
+                        <p class="mb-4 text-secondary">
+                            Phiên bản đặc biệt bìa cứng, in màu chất lượng cao. Tặng kèm Bookmark thiết kế riêng cho 100 đơn hàng đầu tiên.
+                        </p>
+
+                        <div class="d-flex align-items-center gap-4">
+                            <h2 class="fw-bold m-0">95.000 ₫</h2>
+                            <button class="btn btn-dark rounded-0 px-5 py-3 text-uppercase letter-spacing transition-btn">
+                                Thêm vào giỏ <i class="bi bi-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+<section class="py-5 mb-5 position-relative group-hover-trigger">
+    <div class="container">
+        
+        <div class="d-flex justify-content-between align-items-end mb-4">
+            <h3 class="brand-font fs-3 m-0">Sách Bán Chạy</h3>
+            <a href="#" class="text-decoration-none text-dark small text-uppercase fw-bold border-bottom border-dark pb-1">Xem tất cả</a>
+        </div>
+
+        <div class="swiper myBookSwiper position-relative px-2">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide">
+                    <div class="card border-0 product-card h-100">
+                        <div class="image-wrapper position-relative overflow-hidden mb-2">
+                            <span class="badge bg-danger position-absolute top-0 start-0 m-2 rounded-0 small" style="z-index: 5;">-20%</span>
+                            
+                            <a href="detailbs1.html" class="d-block">
+                                <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=400" class="card-img-top rounded-0" alt="Book Cover">
+                            </a>
+
+                            <button class="btn btn-light btn-sm rounded-0 position-absolute start-0 end-0 bottom-0 m-2 quick-add-btn shadow-sm" style="z-index: 5;">
+                                <i class="bi bi-cart-plus me-1"></i> Thêm
+                            </button>
+                        </div>
+                        <div class="card-body px-0 pt-0">
+                            <h6 class="card-title brand-font fs-6 mb-1 text-truncate">
+                                <a href="detaibsl.html" class="text-decoration-none text-dark stretched-link-custom">Design Systems</a>
+                            </h6>
+                            <p class="text-muted small mb-1" style="font-size: 0.8rem;">Alla Kholmatova</p>
+                            <div class="d-flex gap-2 align-items-center small">
+                                <span class="fw-bold">336.000 ₫</span>
+                                <span class="text-decoration-line-through text-muted">420.000 ₫</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card border-0 product-card h-100">
+                        <div class="image-wrapper position-relative overflow-hidden mb-2">
+                            <a href="detailbs2.html" class="d-block">
+                                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=400" class="card-img-top rounded-0" alt="Book Cover">
+                            </a>
+                            <button class="btn btn-light btn-sm rounded-0 position-absolute start-0 end-0 bottom-0 m-2 quick-add-btn shadow-sm" style="z-index: 5;">
+                                <i class="bi bi-cart-plus me-1"></i> Thêm
+                            </button>
+                        </div>
+                        <div class="card-body px-0 pt-0">
+                            <h6 class="card-title brand-font fs-6 mb-1 text-truncate">
+                                <a href="detailbs2.html" class="text-decoration-none text-dark">The Typography</a>
+                            </h6>
+                            <p class="text-muted small mb-1" style="font-size: 0.8rem;">Mynte Studio</p>
+                            <p class="fw-bold small">550.000 ₫</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card border-0 product-card h-100">
+                        <div class="image-wrapper position-relative overflow-hidden mb-2">
+                            <a href="detailbs3.html" class="d-block">
+                                <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=400" class="card-img-top rounded-0" alt="Book Cover">
+                            </a>
+                            <button class="btn btn-light btn-sm rounded-0 position-absolute start-0 end-0 bottom-0 m-2 quick-add-btn shadow-sm" style="z-index: 5;">
+                                <i class="bi bi-cart-plus me-1"></i> Thêm
+                            </button>
+                        </div>
+                        <div class="card-body px-0 pt-0">
+                            <h6 class="card-title brand-font fs-6 mb-1 text-truncate">
+                                <a href="detailbs3.html" class="text-decoration-none text-dark">Creative Confidence</a>
+                            </h6>
+                            <p class="text-muted small mb-1" style="font-size: 0.8rem;">Tom Kelley</p>
+                            <p class="fw-bold small">280.000 ₫</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card border-0 product-card h-100">
+                        <div class="image-wrapper position-relative overflow-hidden mb-2">
+                             <span class="badge bg-black position-absolute top-0 start-0 m-2 rounded-0 small" style="z-index: 5;">New</span>
+                            <a href="detailbs4.html" class="d-block">
+                                <img src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&q=80&w=400" class="card-img-top rounded-0" alt="Book Cover">
+                            </a>
+                            <button class="btn btn-light btn-sm rounded-0 position-absolute start-0 end-0 bottom-0 m-2 quick-add-btn shadow-sm" style="z-index: 5;">
+                                <i class="bi bi-cart-plus me-1"></i> Thêm
+                            </button>
+                        </div>
+                        <div class="card-body px-0 pt-0">
+                            <h6 class="card-title brand-font fs-6 mb-1 text-truncate">
+                                <a href="detailbs4.html" class="text-decoration-none text-dark">Don't Make Me Think</a>
+                            </h6>
+                            <p class="text-muted small mb-1" style="font-size: 0.8rem;">Steve Krug</p>
+                            <p class="fw-bold small">310.000 ₫</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card border-0 product-card h-100">
+                        <div class="image-wrapper position-relative overflow-hidden mb-2">
+                            <a href="detailbs5.html" class="d-block">
+                                <img src="https://images.unsplash.com/photo-1476275466078-4007374efbbe?auto=format&fit=crop&q=80&w=400" class="card-img-top rounded-0" alt="Book Cover">
+                            </a>
+                            <button class="btn btn-light btn-sm rounded-0 position-absolute start-0 end-0 bottom-0 m-2 quick-add-btn shadow-sm" style="z-index: 5;">
+                                <i class="bi bi-cart-plus me-1"></i> Thêm
+                            </button>
+                        </div>
+                        <div class="card-body px-0 pt-0">
+                            <h6 class="card-title brand-font fs-6 mb-1 text-truncate">
+                                <a href="detailbs5.html" class="text-decoration-none text-dark">Steal Like An Artist</a>
+                            </h6>
+                            <p class="text-muted small mb-1" style="font-size: 0.8rem;">Austin Kleon</p>
+                            <p class="fw-bold small">199.000 ₫</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="card border-0 product-card h-100">
+                        <div class="image-wrapper position-relative overflow-hidden mb-2">
+                            <a href="detailbs6.html" class="d-block">
+                                <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&q=80&w=400" class="card-img-top rounded-0" alt="Book Cover">
+                            </a>
+                            <button class="btn btn-light btn-sm rounded-0 position-absolute start-0 end-0 bottom-0 m-2 quick-add-btn shadow-sm" style="z-index: 5;">
+                                <i class="bi bi-cart-plus me-1"></i> Thêm
+                            </button>
+                        </div>
+                        <div class="card-body px-0 pt-0">
+                            <h6 class="card-title brand-font fs-6 mb-1 text-truncate">
+                                <a href="detailbs6.html" class="text-decoration-none text-dark">Made to Stick</a>
+                            </h6>
+                            <p class="text-muted small mb-1" style="font-size: 0.8rem;">Chip Heath</p>
+                            <div class="d-flex gap-2 align-items-center small">
+                                <span class="fw-bold">250.000 ₫</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             
-            <div class="logo-set">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="Amazon" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png" alt="Google" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png" alt="Netflix" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/2560px-IBM_logo.svg.png" alt="IBM" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1600px-Apple_logo_black.svg.png" alt="Apple" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png" alt="Microsoft" class="partner-logo">
-            </div>
-
-            <div class="logo-set">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png" alt="Amazon" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png" alt="Google" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png" alt="Netflix" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/2560px-IBM_logo.svg.png" alt="IBM" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1600px-Apple_logo_black.svg.png" alt="Apple" class="partner-logo">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png" alt="Microsoft" class="partner-logo">
-            </div>
-
+            <div class="swiper-button-next custom-nav-btn"></div>
+            <div class="swiper-button-prev custom-nav-btn"></div>
         </div>
     </div>
 </section>
-        <div id="shop" class="row g-5 mt-3"> <div class="col-md-4">
-                <div class="card border-0 product-card h-100">
-                    <div class="image-wrapper mb-3">
-                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600" class="card-img-top" alt="Sách 1">
-                        <button class="btn btn-dark btn-sm quick-add">Thêm vào giỏ</button>
-                    </div>
-                    <div class="card-body px-0 text-center">
-                        <h5 class="card-title brand-font fs-4">Minimalism Art</h5>
-                        <p class="card-text text-muted small mb-2">John Doe</p>
-                        <p class="fw-bold">350.000 ₫</p>
-                    </div>
-                </div>
-            </div>
+<section class="py-5 my-5">
+    <div class="container py-lg-5">
+        
+        <div class="row mb-4">
+            <div class="col-12"> 
+                
+                <h2 class="brand-font fs-2 mb-4 reveal-item text-start text-dark fw-normal">
+                    Chọn người đồng hành <br> luôn ưu tiên bạn.
+                </h2>
 
-            <div class="col-md-4">
-                <div class="card border-0 product-card h-100">
-                    <div class="image-wrapper mb-3">
-                        <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=600" class="card-img-top" alt="Sách 2">
-                        <button class="btn btn-dark btn-sm quick-add">Thêm vào giỏ</button>
-                    </div>
-                    <div class="card-body px-0 text-center">
-                        <h5 class="card-title brand-font fs-4">Design Systems</h5>
-                        <p class="card-text text-muted small mb-2">Alla Kholmatova</p>
-                        <p class="fw-bold">420.000 ₫</p>
-                    </div>
-                </div>
+                <p class="fs-5 fw-light text-secondary mb-0 reveal-item text-start" style="line-height: 1.9;">
+                    Với trang thông tin được cá nhân hóa, bạn có thể theo dõi hành trình đọc sách, 
+                    nhận gợi ý phù hợp và quản lý mọi đơn hàng một cách dễ dàng. 
+                    Tận hưởng dịch vụ <span class="text-dark fw-medium">hỗ trợ 24/7</span>, 
+                    hệ thống tích điểm minh bạch, giao hàng nhanh chóng và hoàn toàn không có phí ẩn.
+                </p>
             </div>
-
-            <div class="col-md-4">
-                <div class="card border-0 product-card h-100">
-                    <div class="image-wrapper mb-3">
-                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=600" class="card-img-top" alt="Sách 3">
-                        <button class="btn btn-dark btn-sm quick-add">Thêm vào giỏ</button>
-                    </div>
-                    <div class="card-body px-0 text-center">
-                        <h5 class="card-title brand-font fs-4">The Typography</h5>
-                        <p class="card-text text-muted small mb-2">Mynte Studio</p>
-                        <p class="fw-bold">550.000 ₫</p>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </main>
 
-    <footer class="text-center py-5 mt-5 border-top">
-        <p class="text-muted small">&copy; 2024 MYNTE BOOKS. Designed by Group 4.</p>
-    </footer>
+        <div class="row mt-5">
+            <div class="col-12 text-end"> 
+                <div class="reveal-item">
+                    <p class="brand-font fst-italic fs-3 mb-0 text-dark">
+                        "Chỉ là sự an tâm cho chuyến đồng hành."
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+</main>
+
+   <footer class="bg-white border-top pt-5 pb-4 mt-5">
+    <div class="container">
+        <div class="row g-4 justify-content-between">
+            
+            <div class="col-lg-4 col-md-12 text-center text-lg-start">
+                <a class="navbar-brand fs-2 mb-3 d-block" href="#" style="letter-spacing: 1px;">
+                    <span class="brand-font fw-bold">DREAMY</span>
+                </a>
+                <p class="text-muted small mb-1">
+                    &copy; 2025 DREAMY BOOKS.
+                </p>
+                <p class="text-muted small">
+                    Designed by <span class="fw-bold text-dark">Group 15</span>.
+                </p>
+            </div>
+
+            <div class="col-lg-7 col-md-12">
+                <div class="row g-4">
+                    
+                   <div class="col-md-4 col-sm-6">
+                        <h6 class="text-uppercase fw-bold mb-3 small letter-spacing">Contact</h6>
+                        <ul class="list-unstyled d-flex flex-column gap-2">
+                            <li>
+                                <a href="#" class="footer-link text-decoration-none text-muted small">
+                                    <i class="bi bi-messenger me-2"></i> Messenger
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:contact@dreamybooks.com" class="footer-link text-decoration-none text-muted small">
+                                    <i class="bi bi-envelope me-2"></i> Email
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <h6 class="text-uppercase fw-bold mb-3 small letter-spacing">Social Media</h6>
+                        <ul class="list-unstyled d-flex flex-column gap-2">
+                            <li>
+                                <a href="#" class="footer-link text-decoration-none text-muted small">
+                                    <i class="bi bi-facebook me-2"></i> Facebook
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer-link text-decoration-none text-muted small">
+                                    <i class="bi bi-instagram me-2"></i> Instagram
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer-link text-decoration-none text-muted small">
+                                    <i class="bi bi-twitter-x me-2"></i> X
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <h6 class="text-uppercase fw-bold mb-3 small letter-spacing">Claims</h6>
+                        <ul class="list-unstyled d-flex flex-column gap-2">
+                            <li>
+                                <a href="#" class="footer-link text-decoration-none text-muted small">
+                                    Legal Disclaimer
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer-link text-decoration-none text-muted small">
+                                    Terms of Services
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="footer-link text-decoration-none text-muted small">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./js/script.js"></script>|
     <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script> 
-<script>
-    // Khởi động Lenis
-    const lenis = new Lenis({
-        duration: 1.2, // Thời gian trôi (càng cao càng trôi lâu)
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Hàm làm mượt
-        smooth: true
-    });
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Khởi động Lenis
+        const lenis = new Lenis({
+            duration: 1.2, // Thời gian trôi (càng cao càng trôi lâu)
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Hàm làm mượt
+            smooth: true
+        });
 
-    // Vòng lặp để cập nhật hiệu ứng liên tục
-    function raf(time) {
-        lenis.raf(time);
+        // Vòng lặp để cập nhật hiệu ứng liên tục
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
         requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-</script>
+    </script>
+    <script>
+        var swiper = new Swiper(".myBookSwiper", {
+            slidesPerView: 2, // Mobile hiện 2 cuốn
+            spaceBetween: 20, // Khoảng cách giữa các cuốn
+            loop: true,       // Lặp vô hạn (Infinite Loop)
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 4, // Máy tính hiện 4 cuốn
+                    spaceBetween: 30,
+                },
+            },
+        });
+    </script>
+    <script>
+            document.addEventListener("DOMContentLoaded", function() {
+        // 1. Chọn tất cả các phần tử có class 'reveal-item'
+        const revealElements = document.querySelectorAll('.reveal-item');
+
+        // 2. Thiết lập Observer (Người quan sát)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    // Nếu phần tử chui vào màn hình -> Thêm class 'active' (Hiện lên)
+                    entry.target.classList.add('active');
+                } else {
+                    // Nếu phần tử ra khỏi màn hình -> Bỏ class 'active' (Ẩn đi)
+                    // Điều này giúp hiệu ứng lặp lại khi bạn lướt lên lướt xuống
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, {
+            threshold: 0.2, // Khi 20% của dòng chữ hiện ra trong màn hình thì mới bắt đầu hiệu ứng
+            rootMargin: "0px 0px -50px 0px" // Kích hoạt sớm một chút trước khi đến đáy màn hình
+        });
+
+        // 3. Bắt đầu quan sát từng phần tử
+        revealElements.forEach((el) => observer.observe(el));
+    });
+    </script>
 </body>
 </html>
