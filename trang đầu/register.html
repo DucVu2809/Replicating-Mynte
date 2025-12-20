@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<div class="auth-container">
+    <h2>Đăng ký</h2>
+
+   <form action="#success" method="get">
+    <input type="text" placeholder="Họ và tên" required>
+    <input type="tel" placeholder="Số điện thoại"
+	 pattern="[0-9]{10}"
+   	 title="Số điện thoại gồm 10 chữ số"
+	 required>
+    <input type="email" placeholder="Email" required>
+    <input type="password" placeholder="Mật khẩu" required>
+    <input type="password" placeholder="Xác nhận mật khẩu" required>
+
+    <button type="submit">Đăng ký</button>
+</form>
+	<p id="success" class="success-msg">
+    	Đăng ký thành công! 
+	</p>
+
+
+    <!-- QUAY LẠI ĐĂNG NHẬP -->
+    <p class="switch">
+        Đã có tài khoản?
+        <a href="login.html">Đăng nhập</a>
+    </p>
+</div>
+
+</body>
+</html>
