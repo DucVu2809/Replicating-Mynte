@@ -1,0 +1,408 @@
+/* =========================================
+   1. SETUP & VARIABLES
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+    /* --- Colors --- */
+    --bg-color: #ffffff;
+    --bg-light: #f9f9f9;
+    --bg-dark: #000000;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --border-color: #eeeeee;
+    
+    /* --- Typography --- */
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Inter', sans-serif;
+    
+    /* --- Effects --- */
+    --trans-base: all 0.3s ease;
+    --trans-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    --shadow-sm: 0 4px 12px rgba(0,0,0,0.05);
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.15);
+    --shadow-lg: 0 20px 50px rgba(0,0,0,0.3);
+    
+    --radius-pill: 50px;
+    --radius-md: 12px;
+}
+
+/* =========================================
+   2. BASE STYLES
+   ========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: auto; } /* Lenis handles scroll */
+html.lenis { height: auto; }
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+a { text-decoration: none; color: inherit; transition: var(--trans-base); }
+img { display: block; max-width: 100%; }
+
+/* =========================================
+   3. COMPONENTS (UI ELEMENTS)
+   ========================================= */
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 15px 40px;
+    border: 1px solid var(--bg-dark);
+    background: transparent;
+    color: var(--bg-dark);
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: var(--trans-smooth);
+
+    &:hover {
+        background: var(--bg-dark);
+        color: #fff;
+    }
+}
+
+/* --- Inputs --- */
+input, textarea, .form-control {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    font-family: var(--font-sans);
+    outline: none;
+    transition: var(--trans-base);
+    background: transparent;
+
+    &:focus {
+        border-bottom-color: var(--bg-dark);
+        box-shadow: none;
+        background-color: #fff;
+    }
+}
+
+/* --- Modals (Base Fixes) --- */
+.modal-backdrop.fade { opacity: 0; transition: opacity 0.3s ease; }
+.modal-backdrop.show { opacity: 0.5; }
+
+.modal.fade .modal-dialog {
+    transform: scale(0.9); opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.modal.show .modal-dialog { transform: scale(1); opacity: 1; }
+
+/* --- Navbar Elements --- */
+#userAvatar { transition: transform 0.3s ease; }
+#userAvatar:hover { transform: scale(1.1); }
+
+.nav-pills .nav-link {
+    color: var(--text-secondary);
+    transition: var(--trans-base);
+    &.active { background-color: var(--bg-dark) !important; color: #fff !important; }
+}
+
+/* =========================================
+   4. FEATURE: INTERACTIVE MENU
+   ========================================= */
+.nav-interaction-group {
+    /* Khi hover vào cha -> mờ tất cả con */
+    &:hover .nav-interactive-item {
+        opacity: 0.3;
+        filter: blur(0.5px);
+    }
+
+    /* Style cho con */
+    & .nav-interactive-item {
+        transition: var(--trans-smooth);
+        opacity: 1;
+        display: inline-block;
+
+        /* Khi hover vào chính nó -> hiện rõ */
+        &:hover {
+            opacity: 1;
+            filter: blur(0px);
+            transform: translateY(-5px);
+            text-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    }
+}
+
+/* =========================================
+   5. FEATURE: CARDS & IMAGES (FIXED)
+   ========================================= */
+
+/* Gom chung 2 tên class để đảm bảo HTML nào cũng chạy được */
+.img-container, 
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+    background-color: #f8f9fa; /* Màu nền nhẹ khi ảnh chưa load */
+    
+    /* --- [QUAN TRỌNG] Ép tất cả khung ảnh về tỷ lệ 3:4 --- */
+    width: 100%;
+    aspect-ratio: 3/4; 
+    
+    /* Nếu trình duyệt quá cũ không hiểu aspect-ratio, dùng height dự phòng */
+    /* height: 350px; */ 
+}
+
+/* Định dạng cho ảnh bên trong */
+.img-container img,
+.image-wrapper img,
+.product-card .card-img-top { /* Thêm selector này để "cứu" trường hợp thiếu div bao ngoài */
+    width: 100%;
+    height: 100%; /* Bắt buộc ảnh cao bằng khung */
+    object-fit: cover; /* Cắt ảnh thừa để không bị méo */
+    object-position: center;
+    transition: transform 0.5s ease;
+    display: block;
+}
+
+/* Hiệu ứng Hover: Phóng to ảnh */
+.product-card:hover .img-container img,
+.product-card:hover .image-wrapper img,
+.product-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+/* FIX LỖI ẢNH CHO HTML HIỆN TẠI */
+
+/* 1. Định hình khung ảnh (Thẻ <a>) */
+.book-frame {
+    display: block; /* Bắt buộc: Vì thẻ <a> mặc định là inline, không chỉnh size được */
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    
+    /* Tỷ lệ ảnh sách chuẩn (Chiều rộng 2 phần : Chiều cao 3 phần) */
+    aspect-ratio: 2/3; 
+    
+    background-color: #f8f9fa; /* Màu nền chờ load ảnh */
+    border-bottom: 1px solid #eee; /* Đường kẻ mờ ngăn cách ảnh và chữ */
+}
+
+/* 2. Ép ảnh nằm gọn trong khung */
+.book-frame img {
+    width: 100%;
+    height: 100%;       /* Chiều cao ăn theo cha (.book-frame) */
+    object-fit: cover;  /* Cắt phần thừa để ảnh không méo */
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+/* 3. Hiệu ứng khi di chuột vào cả cái thẻ Card (.book-card-hover) */
+.book-card-hover:hover .book-frame img {
+    transform: scale(1.05); /* Phóng to ảnh nhẹ */
+}
+
+/* --- NÚT THÊM NHANH (QUICK ADD) --- */
+.quick-add-btn {
+    position: absolute;
+    bottom: 15px;      /* Cách đáy 15px */
+    left: 15px;        /* Cách trái 15px */
+    right: 15px;       /* Cách phải 15px (để nút căng ngang đẹp hơn) */
+    
+    opacity: 0;        /* Mặc định ẩn */
+    transform: translateY(20px); /* Đẩy xuống dưới để chờ trồi lên */
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 10;       /* Đảm bảo nổi lên trên ảnh */
+}
+
+/* Khi di chuột vào thẻ Product Card thì hiện nút */
+.product-card:hover .quick-add-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   6. FEATURE: MARQUEE (LOGO RUN)
+   ========================================= */
+.partner-strip-section { padding: 40px 0; overflow: hidden; }
+
+.marquee-wrapper {
+    position: relative; width: 100%; max-width: 1200px; margin: 0 auto; overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+
+    &:hover .marquee-track { animation-play-state: paused; }
+}
+
+.marquee-track {
+    display: flex; width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.logo-set { display: flex; gap: 80px; padding-right: 80px; align-items: center; }
+
+.partner-logo {
+    height: 25px; width: auto;
+    filter: grayscale(100%) opacity(0.6);
+    transition: var(--trans-base);
+
+    &:hover { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* =========================================
+   7. FEATURE: MODERN SEARCH BOX
+   ========================================= */
+.search-box-modern {
+    display: flex; align-items: center;
+    background-color: #fff;
+    border-radius: var(--radius-pill);
+    padding: 4px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--trans-base);
+
+    &:focus-within {
+        border-color: var(--bg-dark);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-1px);
+    }
+
+    & input.form-control {
+        border: none !important;
+        box-shadow: none !important;
+        padding-left: 20px;
+    }
+
+    & .btn-search-custom {
+        width: 40px; height: 40px; border-radius: 50%;
+        border: none; background-color: #f2f2f2; color: #333;
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0; cursor: pointer; transition: 0.2s;
+
+        &:hover { background-color: var(--bg-dark); color: #fff; }
+    }
+}
+
+/* =========================================
+   8. FEATURE: SWIPER CUSTOM NAV
+   ========================================= */
+/* Override without !important by using 'body' selector */
+body .custom-nav-btn {
+    width: 45px; height: 45px;
+    background: #fff; color: #000;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    position: absolute; top: 40%; margin-top: 0;
+    transform: translateY(-50%);
+    opacity: 0; z-index: 20;
+    display: flex; align-items: center; justify-content: center;
+    transition: var(--trans-smooth);
+
+    &::after { font-size: 18px; font-weight: bold; }
+    
+    &:hover {
+        background-color: var(--bg-dark);
+        color: #fff !important;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+}
+.group-hover-trigger:hover .custom-nav-btn { opacity: 1; transform: translateY(-50%) scale(1); }
+.swiper-button-prev { left: 0; }
+.swiper-button-next { right: 0; }
+
+@media (max-width: 768px) {
+    body .custom-nav-btn {
+        opacity: 1 !important; width: 35px; height: 35px; top: 35%;
+    }
+    body .custom-nav-btn::after { font-size: 14px; }
+}
+
+/* =========================================
+   9. FEATURE: DROPDOWN & FOOTER
+   ========================================= */
+#sortDropdownBtn {
+    background-color: #fff; border-color: var(--border-color);
+    transition: var(--trans-base);
+
+    &:hover, &[aria-expanded="true"] {
+        border-color: var(--bg-dark) !important;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md) !important;
+    }
+}
+
+.dropdown-menu {
+    display: none; opacity: 0;
+    animation: dropdownFade 0.3s ease forwards;
+    inset: auto 0 auto auto !important; margin-top: 10px !important;
+    min-width: 220px; border: none; border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md); padding: 8px; background-color: #fff;
+    z-index: 1000;
+
+    &.show { display: block; }
+}
+
+@keyframes dropdownFade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-item {
+    padding: 10px 15px; font-weight: 500; color: #555; transition: 0.2s;
+    &:hover { background-color: #f8f9fa; color: #000; transform: translateX(5px); }
+    &.active, &:active { background-color: var(--bg-dark); color: #fff; }
+}
+
+.footer-link {
+    transition: var(--trans-base);
+    display: inline-flex; align-items: center;
+    
+    &:hover { color: #000 !important; transform: translateX(5px); }
+}
+
+/* =========================================
+   10. UTILS & OTHERS
+   ========================================= */
+.divider { height: 1px; background-color: var(--border-color); margin: 40px 0; }
+.letter-spacing { letter-spacing: 1px; }
+
+.horizontal-fade-banner {
+    background: linear-gradient(to right, rgba(250, 249, 246, 0) 0%, rgba(250, 249, 246, 1) 15%, rgba(250, 249, 246, 1) 85%, rgba(250, 249, 246, 0) 100%);
+    
+    & .btn-outline-dark {
+        border-color: #333; background: transparent; transition: var(--trans-base);
+        &:hover { background-color: #333; color: #fff; transform: translateY(-2px); }
+    }
+}
+
+/* Page Loader */
+.page-loader {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #fff; z-index: 9999;
+    opacity: 1; visibility: visible;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    pointer-events: none;
+    
+    &.hidden { opacity: 0; visibility: hidden; }
+}
+
+/* Scroll Reveal */
+.reveal-item {
+    opacity: 0; transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    &.active { opacity: 1; transform: translateY(0); }
+}
+
+.transition-btn:hover i { transform: translateX(5px); transition: transform 0.3s ease; }
