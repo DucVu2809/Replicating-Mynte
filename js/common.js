@@ -263,4 +263,108 @@ function checkLoginState() {
         loginBtn.classList.remove('d-none');
         loggedInMenu.classList.add('d-none');
     }
+
+}
+let recoveryEmail = "";
+
+// 6. Xử lý Quên mật khẩu (Đã sửa đổi: Chuyển sang màn hình Reset)
+function handleForgot(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('forgotEmail').value;
+    const msgDiv = document.getElementById('forgotSuccess');
+    
+    // Kiểm tra email trong localStorage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const userExists = users.some(u => u.email === email);
+    
+    if (userExists) {
+        // Lưu email lại để dùng cho bước sau
+        recoveryEmail = email;
+        
+        // Hiển thị email lên form reset cho chuyên nghiệp
+        document.getElementById('resetEmailDisplay').innerText = email;
+
+        // Giả lập đang gửi mail... đợi 1 giây rồi chuyển tab
+        msgDiv.classList.remove('d-none', 'text-danger');
+        msgDiv.classList.add('text-success');
+        msgDiv.innerHTML = `<i class="bi bi-hourglass-split me-1"></i> Đang xác thực...`;
+
+        setTimeout(() => {
+            msgDiv.classList.add('d-none'); // Ẩn thông báo cũ
+            switchAuthTab('reset-panel');   // Chuyển sang tab nhập mật khẩu mới
+        }, 1000);
+
+    } else {
+        // Báo lỗi nếu email không tồn tại
+        msgDiv.classList.remove('d-none', 'text-success');
+        msgDiv.classList.add('text-danger');
+        msgDiv.innerHTML = `<i class="bi bi-exclamation-circle me-1"></i> Email này chưa đăng ký!`;
+    }
+}
+// 7. Hàm chuyển đổi Tab thủ công (Dùng cho nút Quên mật khẩu)
+function switchAuthTab(tabId) {
+    // Bước 1: Ẩn tất cả các nội dung tab hiện tại
+    document.querySelectorAll('.tab-pane').forEach(pane => {
+        pane.classList.remove('show', 'active');
+    });
+
+    // Bước 2: Xóa trạng thái "active" của các nút trên menu (Đăng nhập/Đăng ký)
+    document.querySelectorAll('#authTab .nav-link').forEach(nav => {
+        nav.classList.remove('active');
+    });
+
+    // Bước 3: Hiện tab mục tiêu
+    const targetPane = document.getElementById(tabId);
+    if (targetPane) {
+        targetPane.classList.add('show', 'active');
+    }
+
+    // Bước 4: Nếu quay lại tab Đăng nhập, hãy làm sáng nút "Đăng nhập" trên menu
+    if (tabId === 'login-panel') {
+        const loginBtn = document.getElementById('login-tab');
+        if (loginBtn) loginBtn.classList.add('active');
+    }
+}
+// 8. Xử lý Đổi mật khẩu mới
+function handleResetPassword(e) {
+    e.preventDefault();
+
+    const newPass = document.getElementById('newPass').value;
+    const confirmPass = document.getElementById('newPassConfirm').value;
+    const errorDiv = document.getElementById('resetError');
+    const successDiv = document.getElementById('resetSuccess');
+
+    // Kiểm tra khớp mật khẩu
+    if (newPass !== confirmPass) {
+        errorDiv.classList.remove('d-none');
+        return;
+    }
+
+    errorDiv.classList.add('d-none');
+
+    // Cập nhật mật khẩu trong LocalStorage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const userIndex = users.findIndex(u => u.email === recoveryEmail);
+
+    if (userIndex !== -1) {
+        // Đổi mật khẩu
+        users[userIndex].pass = newPass;
+        localStorage.setItem('users', JSON.stringify(users));
+
+        // Thông báo thành công
+        successDiv.classList.remove('d-none');
+        
+        // Sau 1.5s thì chuyển về trang đăng nhập
+        setTimeout(() => {
+            successDiv.classList.add('d-none');
+            document.getElementById('resetForm').reset();
+            document.getElementById('forgotForm').reset();
+            
+            // Chuyển về tab đăng nhập & điền sẵn thông tin
+            switchAuthTab('login-panel');
+            document.getElementById('loginEmail').value = recoveryEmail;
+            document.getElementById('loginPass').focus();
+        }, 1500);
+    }
 }
