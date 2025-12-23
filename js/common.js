@@ -1,4 +1,4 @@
-      document.addEventListener("DOMContentLoaded", function() {
+     document.addEventListener("DOMContentLoaded", function() {
         const loader = document.querySelector('.page-loader');
         if (loader) {
             setTimeout(() => {
@@ -263,7 +263,6 @@ function checkLoginState() {
         loginBtn.classList.remove('d-none');
         loggedInMenu.classList.add('d-none');
     }
-
 }
 let recoveryEmail = "";
 
